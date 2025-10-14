@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 300px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0096d1;
+            margin-bottom: 45px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #777777;
+            margin-bottom: 25px;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        input::placeholder {
+            font-style: italic;
+        }
+
+        input { 
+            text-align: left;
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #aaa;
+            border-radius: 14px;
+            font-size: 14px;
+            margin-bottom: 35px;
+        }
+
+        button {
+            background-color: #0096d8;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #002bb5;
+        }
+
+        #aviso {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: normal;
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Bem Vindo!</h1>
+        <h2>Digite seu nome:</h2>
+        <form id="form-nome">
+            <input type="text" id="nome" placeholder="Nome">
+            <button type="submit">Clique aqui</button>
+        </form>
+        <p id="aviso"></p>
+    </div>
+
+    <script>
+        const form = document.getElementById('form-nome');
+        const aviso = document.getElementById('aviso');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value.trim();
+            if(nome) {
+                aviso.style.color = 'green'
+                aviso.style.fontStyle = 'normal'
+                aviso.textContent = `Olá, ${nome}! Seja bem-vindo a página do Davi!`;
+            } else {
+                aviso.style.fontStyle =  'italic'
+                aviso.style.color = 'red'
+                aviso.textContent = `Por favor, insira seu nome`;
+            }
+        });
+    </script>
+</body>
+</html>
